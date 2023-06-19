@@ -15,7 +15,7 @@ import java.util.List;
 @Getter @Setter @NoArgsConstructor
 public class Wizyta {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "wizyta_id", nullable = false)
     private Integer wizyta_id;
 

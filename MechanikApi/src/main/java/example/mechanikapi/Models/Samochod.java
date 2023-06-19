@@ -1,8 +1,6 @@
 package example.mechanikapi.Models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +16,7 @@ import java.util.List;
 @Getter @Setter @NoArgsConstructor
 public class Samochod {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "samochod_id", nullable = false)
     private Integer samochod_id;
     @Column(length = 20)
@@ -28,10 +26,10 @@ public class Samochod {
     private LocalDate data_rejestracji;
     @ManyToOne
     @JoinColumn(name = "klient_id")
-    @JsonManagedReference
     private Klient klient_id;
     @OneToMany(mappedBy = "samochod_id")
     @JsonBackReference
+    @JsonIgnore
     private List<Wizyta> wizytySam;
 
 }

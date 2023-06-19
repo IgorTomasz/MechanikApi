@@ -18,4 +18,8 @@ public class WizytaService {
     public List<Wizyta> getAll(){
         return wizytaRepository.findAll(PageRequest.of(0,10)).getContent();
     }
+
+    public Optional<Wizyta> getWizyta(Integer id){
+        return wizytaRepository.findById(id);
+    }
 }

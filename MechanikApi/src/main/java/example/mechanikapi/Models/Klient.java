@@ -1,6 +1,6 @@
 package example.mechanikapi.Models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +16,8 @@ import java.util.List;
 public class Klient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "klient_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Integer klient_id;
     @Column(length = 15)
     private String first_name;
@@ -26,6 +26,6 @@ public class Klient {
     @Column(length = 9)
     private int nr_tel;
     @OneToMany(mappedBy = "klient_id")
-    @JsonBackReference
+    @JsonIgnore
     private List<Samochod> samochody;
 }

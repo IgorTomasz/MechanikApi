@@ -4,7 +4,7 @@
 -- tables
 -- Table: Klient
 CREATE TABLE Klient (
-                        klient_id int  NOT NULL,
+                        klient_id int IDENTITY(1,1) NOT NULL,
                         first_name varchar(15)  NOT NULL,
                         last_name varchar(25)  NOT NULL,
                         nr_tel int  NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE Klient (
 
 -- Table: Mechanik
 CREATE TABLE Mechanik (
-                          mechanik_id int  NOT NULL,
+                          mechanik_id int IDENTITY(1,1) NOT NULL,
                           first_name varchar(15)  NOT NULL,
                           last_name varchar(25)  NOT NULL,
                           nr_tel int  NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE Mechanik (
 
 -- Table: Samochod
 CREATE TABLE Samochod (
-                          samochod_id int  NOT NULL,
+                          samochod_id int IDENTITY(1,1) NOT NULL,
                           marka varchar(20)  NOT NULL,
                           model varchar(20)  NOT NULL,
                           data_rejestracji date  NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE s_status (
 
 -- Table: Wizyta
 CREATE TABLE Wizyta (
-                        wizyta_id int  NOT NULL,
+                        wizyta_id int IDENTITY(1,1) NOT NULL,
                         samochod_id int  NOT NULL,
                         status_id int  NOT NULL,
                         data_przyjecia date  NOT NULL,
