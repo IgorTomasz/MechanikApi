@@ -1,5 +1,6 @@
 package example.mechanikapi.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,8 @@ public class Status {
     private Integer status_id;
     @Column(length = 15)
     private String name;
-    @OneToMany(mappedBy = "status")
+    @OneToMany(mappedBy = "status_id")
+    @JsonBackReference
     private List<Wizyta> wizytyStat;
 
 }

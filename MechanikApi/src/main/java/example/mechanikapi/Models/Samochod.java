@@ -1,5 +1,8 @@
 package example.mechanikapi.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "Samochod")
 @EnableJpaRepositories
 @Getter @Setter @NoArgsConstructor
 public class Samochod {
@@ -24,8 +28,10 @@ public class Samochod {
     private LocalDate data_rejestracji;
     @ManyToOne
     @JoinColumn(name = "klient_id")
-    private Klient wlasciciel;
-    @OneToMany(mappedBy = "samochodyWizyta")
+    @JsonManagedReference
+    private Klient klient_id;
+    @OneToMany(mappedBy = "samochod_id")
+    @JsonBackReference
     private List<Wizyta> wizytySam;
 
 }

@@ -1,5 +1,6 @@
 package example.mechanikapi.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,18 +18,27 @@ public class Wizyta {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "wizyta_id", nullable = false)
     private Integer wizyta_id;
+
     @ManyToOne
     @JoinColumn(name = "samochod_id")
-    private Samochod samochodyWizyta;
+    @JsonManagedReference
+    private Samochod samochod_id;
+
     @ManyToOne
     @JoinColumn(name = "status_id")
-    private Status status;
+    @JsonManagedReference
+    private Status status_id;
+
     private LocalDate data_przyjecia;
+
     @Column(columnDefinition = "date default null")
     private LocalDate data_zakonczenia;
+
     @Column(length = 250)
     private String opis;
+
     @ManyToOne
     @JoinColumn(name = "mechanik_id")
-    private Mechanik mechanik;
+    @JsonManagedReference
+    private Mechanik mechanik_id;
 }

@@ -1,5 +1,6 @@
 package example.mechanikapi.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 @Entity
+@Table(name = "Klient")
 @EnableJpaRepositories
 @Getter @Setter @NoArgsConstructor
 public class Klient {
@@ -18,11 +20,12 @@ public class Klient {
     @Column(name = "klient_id", nullable = false)
     private Integer klient_id;
     @Column(length = 15)
-    private String firstName;
+    private String first_name;
     @Column(length = 25)
-    private String lastName;
+    private String last_name;
     @Column(length = 9)
     private int nr_tel;
-    @OneToMany(mappedBy = "wlasciciel")
+    @OneToMany(mappedBy = "klient_id")
+    @JsonBackReference
     private List<Samochod> samochody;
 }
