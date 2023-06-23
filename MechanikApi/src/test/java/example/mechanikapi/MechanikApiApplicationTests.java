@@ -20,11 +20,11 @@ class MechanikApiApplicationTests {
 
     @Test
     void shouldHaveAccess(){
-/*        ResponseEntity<String> response = restTemplate.withBasicAuth("jan","abc123").getForEntity("/klienci",String.class);
+        ResponseEntity<String> response = restTemplate.withBasicAuth("jan","abc123").getForEntity("/klienci",String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        response = restTemplate.withBasicAuth("kacper","qaz123").getForEntity("/wizyta",String.class);
+/*        response = restTemplate.withBasicAuth("kacper","qaz123").getForEntity("/wizyta",String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);*/
-        ResponseEntity<String> response = restTemplate.withBasicAuth("kacper","qaz123").getForEntity("/klienci/",String.class);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+/*        ResponseEntity<String> response = restTemplate.withBasicAuth("kacper","qaz123").getForEntity("/klienci/",String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);*/
     }
 }
